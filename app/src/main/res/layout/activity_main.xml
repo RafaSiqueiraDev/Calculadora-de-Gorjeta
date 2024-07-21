@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_height="match_parent"
+    >
+
+    <TextView
+        android:id="@+id/t_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:text="Tips Calculator"
+        android:textSize="32sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_subtitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:text="Preencha os campos abaixo para realizar o calculo da sua conta"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/t_title" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_total"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_subtitle">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/tie_total"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="Digite o valor total da conta"
+            android:inputType="numberDecimal"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_numero_de_pessoas"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/til_total">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/tie_qtd_pessoas"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="Digite o número de pessoas na mesa"
+            android:maxLength="2"
+            android:inputType="number" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <RadioGroup
+        android:id="@+id/rg_percentual"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        android:orientation="horizontal"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="@id/til_numero_de_pessoas"
+        app:layout_constraintStart_toStartOf="@id/til_numero_de_pessoas"
+        app:layout_constraintTop_toBottomOf="@id/til_numero_de_pessoas"
+        >
+        <RadioButton
+            android:id="@+id/rbOptionone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="10%"/>
+
+        <RadioButton
+            android:id="@+id/rbOptionTwo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="15%"/>
+        <RadioButton
+            android:id="@+id/rbOptionThree"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="20%"/>
+
+
+    </RadioGroup>
+
+
+    <Button
+        android:id="@+id/Limpar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="4dp"
+        android:text="Limpar"
+        app:layout_constraintEnd_toStartOf="@+id/vertical_guideline"
+        app:layout_constraintStart_toStartOf="@id/til_numero_de_pessoas"
+        app:layout_constraintTop_toBottomOf="@+id/rg_percentual" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/vertical_guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5"/>
+
+
+    <Button
+        android:id="@+id/calcular"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="4dp"
+        android:text="Calcular"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/vertical_guideline"
+        app:layout_constraintTop_toBottomOf="@+id/rg_percentual" />
+
+    <TextView
+        android:id="@+id/tv_result"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/calcular" />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
