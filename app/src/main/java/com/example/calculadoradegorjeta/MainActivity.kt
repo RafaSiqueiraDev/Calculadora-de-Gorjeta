@@ -61,9 +61,11 @@ class MainActivity : AppCompatActivity() {
                 val tips = totalTemp * percentage /100
                 val totalWithTips = totalTemp + tips
 
+                binding.tvResult.text = "Total com gorjeta = $totalWithTips"
+
             }
 
-            binding.Limpar.setOnClickListener()
+
 
         }
 
