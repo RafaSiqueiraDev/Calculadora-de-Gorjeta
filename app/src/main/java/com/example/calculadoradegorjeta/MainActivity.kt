@@ -1,5 +1,6 @@
 package com.example.calculadoradegorjeta
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
@@ -93,21 +94,30 @@ class MainActivity : AppCompatActivity() {
                 val tips = totalTemp * percentage /100
                 val totalWithTips = totalTemp + tips
 
-                binding.tvResult.text = "Total com gorjeta = $totalWithTips"
+                val intent = Intent (this, SummaryActivity::class.java)
+                intent.apply {
+                    putExtra("totalTable",totalTable)
+                    putExtra("numPeople",numOfPeopleSelected)
+                    putExtra("percentage",percentage)
+                    putExtra("totalAmount",totalWithTips)
+
+                }
+                clean()
+                startActivity(intent)
 
             }
 
             binding.Limpar.setOnClickListener{
-                binding.tvResult.text =""
-                binding.tieTotal.setText("")
-                pos = 0
-                binding.rbOptionone.isChecked = false
-                binding.rbOptionTwo.isChecked = false
-                binding.rbOptionThree.isChecked = false
+                clean()
 
 
 
             }
         }
-    }
+
+    } private fun clean (){
+        binding.tieTotal.setText("")
+        binding.rbOptionone.isChecked = false
+        binding.rbOptionTwo.isChecked = false
+        binding.rbOptionThree.isChecked = false}
 }
